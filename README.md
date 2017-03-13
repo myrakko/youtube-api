@@ -1,14 +1,11 @@
 # php youtube-api scripts
 ## cmd/key.php
-###php scr to insert the keyword for youtube search api.
 
-
-get google php api by composer
+####get google php api by composer
 ```
 composer require google/apiclient:^2.0
 ```
-
-
+####php scr to insert the keyword for youtube search api.
 ```
 <?php
 
