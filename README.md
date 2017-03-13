@@ -1,6 +1,13 @@
 # php youtube-api scripts
 ## cmd/key.php
-php scr to insert the keyword for youtube search api.
+###php scr to insert the keyword for youtube search api.
+
+
+get google php api by composer
+```
+composer require google/apiclient:^2.0
+```
+
 
 ```
 <?php
@@ -13,7 +20,7 @@ $_GET['maxResults']="3";
 if ($_GET['q'] && $_GET['maxResults']) {
 require_once ('vendor/autoload.php');
 
-$DEVELOPER_KEY = 'AIzaSyD5JOW2oIn-UxYpZrV6qV8mWI2yGLcggDI';
+$DEVELOPER_KEY = 'yourkey';
 
 $client = new Google_Client();
 $client->setDeveloperKey($DEVELOPER_KEY);
