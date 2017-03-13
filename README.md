@@ -1,10 +1,9 @@
-# php youtube-api scripts
-
+# php youtube-api + youtube-dl
+somewhat clumsy so need a rewrite.
 ## dir structure
 
 ###php/key.php
 php scr to write video ids using youtube search api.
-somewhat clumsy so need a rewrite.
 
 ```
 vi php/key.php
@@ -24,14 +23,19 @@ php/dl.php keyword
 
 dl videos from ls/keyword.ls
 
+```
+############################################################
+```
+
 ## scripts
 
-### php/key.php
-
-get google php api by composer
+### get google php api by composer
 ```
 composer require google/apiclient:^2.0
 ```
+
+### php/key.php
+
 ####php scr to insert the keyword for youtube search api.
 ```
 <?php
