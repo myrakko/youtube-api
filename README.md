@@ -14,7 +14,6 @@ vi php/key.php
 $_GET['q']="
 southpark
 ";
-
 ```
 ###php/dl.php
 
@@ -27,9 +26,7 @@ php/dl.php keyword
 
 dl videos from ls/keyword.ls
 
-```
 ############################################################
-```
 
 ## scripts
 
