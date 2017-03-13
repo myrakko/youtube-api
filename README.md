@@ -1,10 +1,10 @@
 # php youtube-api + youtube-dl
 somewhat clumsy so need a rewrite.
 ## dir structure
-#####php/key.php
-#####php/dl.php
-#####cmd/dl.sh
-#####ls/keyword.ls
+php/key.php<br>
+php/dl.php<br>
+cmd/dl.sh<br>
+ls/keyword.ls<br>
 
 ###php/key.php
 php scr to write video ids using youtube search api.
