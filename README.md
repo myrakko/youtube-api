@@ -1,7 +1,34 @@
 # php youtube-api scripts
-## cmd/key.php
 
-####get google php api by composer
+## dir structure
+
+###php/key.php
+php scr to write video ids using youtube search api.
+somewhat clumsy so need a rewrite.
+
+```
+vi php/key.php
+$_GET['q']="
+southpark
+";
+
+```
+###php/dl.php
+
+write video ids to ls/keyword.ls.
+
+```
+php/dl.php keyword
+```
+###cmd/dl.sh
+
+dl videos from ls/keyword.ls
+
+## scripts
+
+### php/key.php
+
+get google php api by composer
 ```
 composer require google/apiclient:^2.0
 ```
@@ -78,4 +105,62 @@ htmlspecialchars($e->getMessage()));
 ?>
 
 ```
+### php/dl.php
 
+write video ids to ls/keyword.ls.
+
+```
+<?php
+if(!isset($argv[1])){
+$argv[1]=null;
+}
+$arg=$argv[1];
+echo $arg;
+
+$dir1="/mnt/vid/Vid";
+//include "lib-fun.php";
+include "$dir1/fun/php/key.php";
+
+system("rm ls/$arg.ls");
+system("touch ls/$arg.ls");
+
+echo count($varr)."\n";
+
+$txt="";
+
+foreach ($varr as $val) {
+
+$txt=$txt."https://www.youtube.com/watch?v=$val"."\n";
+  //    echo "https://www.youtube.com/watch?v=$val";
+
+//chdir("/mnt/vid/Vid/jar");
+//echo  getcwd();
+
+$myf = fopen("ls/$arg.ls", "w+") or die("Unable to open file!");
+fwrite($myf, $txt);
+fclose($myf);
+
+exec("cmd/dl.sh ls/$arg.ls");
+
+}
+
+
+
+?>
+
+``` 
+### cmd/dl.sh
+dl videos using youtube-dl from ls/keyword.ls.
+#!/bin/bash
+
+cat1=$(cat $1)
+sed "1d" $1 > $1.2
+cat2=$(cat $1.2)
+
+for i in $cat2
+do
+#echo $i
+youtube-dl -f mp4 $i
+
+done
+```
